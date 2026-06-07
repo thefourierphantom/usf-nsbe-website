@@ -1,45 +1,67 @@
 ## USF NSBE Website
 
-The USF NSBE Website project aims to provide a professional, responsive, and informational hub for the University of South Florida chapter of the National Society of Black Engineers. This site is built using foundational web technologies (HTML, CSS, and vanilla JavaScript) and is designed to serve as a clean, reliable resource for our members, the university community, and corporate partners.
-
-The majority of the core structure is complete, and we welcome contributions to build out content pages based on the existing template and styling language.
+The USF NSBE Website is the official web presence for the University of South Florida chapter of the National Society of Black Engineers. Built with plain HTML, CSS, and vanilla JavaScript — no build tools, no frameworks, no npm risk.
 
 ---
 
-## Installation
+## Deployment
 
-To set up the project locally, follow these steps:
+**GitHub → Netlify → GoDaddy domain**
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/MarioSinclair/USF-NSBE-Website.git
-    ```
-2.  **Navigate to the project directory**
-    ```bash
-    cd USF-NSBE-Website
-    ```
-3.  **Run a local development server**
-    
-    The site uses root-relative paths for navigation, so a local server is needed.
-    
-    **VS Code Live Server (Recommended)**
-    - Install the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code
-    - Right-click on `index.html` → "Open with Live Server"
-    - Your site will open at `http://127.0.0.1:5500/`
+The `main` branch deploys automatically to Netlify on every push. The custom domain (`usfnsbe.com`) is managed through GoDaddy and pointed at Netlify's DNS. When handing off to a new officer:
+
+1. Transfer the GitHub repo ownership (Settings → Transfer)
+2. Add the new officer as a Netlify team member
+3. Update GoDaddy nameservers if the domain is being moved
+
+---
+
+## Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/thefourierphantom/usf-nsbe-website.git
+   ```
+2. **Navigate to the project directory**
+   ```bash
+   cd usf-nsbe-website
+   ```
+3. **Run a local development server**
+
+   The site uses root-relative paths, so a local server is required (not just opening the file directly).
+
+   **VS Code Live Server (recommended)**
+   - Install the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+   - Right-click `index.html` → "Open with Live Server"
+   - Opens at `http://127.0.0.1:5500/`
+
+---
+
+## Repository Structure
+
+```
+/                   → Homepage
+/about/             → Leadership & chapter info
+/initiatives/       → Programs and outreach
+/sponsors/          → Sponsorship tiers and current sponsors
+/conference/        → NSBE Annual Convention info
+/contact/           → Contact page
+/css/               → Shared stylesheet
+/js/                → Menu and carousel scripts
+/images/            → Shared images (logos, hero, carousel)
+```
 
 ---
 
 ## How to Contribute
 
-We welcome contributions from NSBE members and the wider community! We encourage you to start by tackling pages that need content or making minor style adjustments.
+We welcome contributions from NSBE members and the wider community.
 
-To ensure a smooth collaboration process, please read our dedicated guidelines before submitting changes:\
-[Read the Full Contribution Guide Here](https://github.com/MarioSinclair/USF-NSBE-Website/blob/main/CONTRIBUTING.md)
-
-Thanks for contributing!!! :) 
+Before submitting changes, please read the contribution guide:  
+[CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---
 
 ## License
-This project is released under the permissive MIT License. You can find the full license text in the [LICENSE](https://github.com/MarioSinclair/USF-NSBE-Website/blob/main/LICENSE.md) file.
 
+Released under the MIT License. See [LICENSE.md](./LICENSE.md) for details.

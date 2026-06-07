@@ -1,0 +1,28 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/initiatives"
+  to = "/initiatives/"
+  status = 301
+
+[[redirects]]
+  from = "/conference"
+  to = "/conference/"
+  status = 301
+
+[[redirects]]
+  from = "/sponsors"
+  to = "/sponsors/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301

@@ -6,26 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to the official website for the University of South Florida's chapter of the National Society of Black Engineers (NSBE). Find updates, event schedules, E-Board info, sponsorship information, and how to become a member!">
     <title>USF NSBE | Official USF Chapter - National Society of Black Engineers</title>
-    
-    <!-- Essential SEO Meta Tags -->
+
     <meta name="keywords" content="USF NSBE, National Society of Black Engineers, University of South Florida, engineering students, black engineers, STEM, Tampa Bay engineering, student organization">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Tags for Social Media -->
+
     <meta property="og:title" content="USF NSBE | Official USF Chapter - National Society of Black Engineers">
     <meta property="og:description" content="Welcome to the official website for the University of South Florida's chapter of the National Society of Black Engineers (NSBE). Find updates, event schedules, E-Board info, sponsorship information, and how to become a member!">
     <meta property="og:image" content="https://www.usfnsbe.com/images/nsbelogo.png">
     <meta property="og:url" content="https://www.usfnsbe.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="USF NSBE">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,900&display=swap">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="./images/nsbelogo.png">
     <link rel="canonical" href="https://www.usfnsbe.com/">
 </head>
 <body>
 
-    <!-- Skip Navigation for Accessibility -->
+<!-- Skip Navigation for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header>
@@ -40,8 +43,8 @@
                 <li><a href="/" class="active" aria-current="page">Home</a></li>
                 <li><a href="/about/">About Us</a></li>
                 <li><a href="/initiatives/">Initiatives</a></li>
-                <li><a href="/sponsors/">Sponsors</a></li>
-                <li><a href="/conference/">Conference</a></li>
+                <li><a href="/sponsors/">Partners</a></li>
+                <li><a href="https://nsbe.org/events/" target="_blank" rel="noopener noreferrer">Conference</a></li>
                 <li><a href="/contact/">Contact Us</a></li>
             </ul>
 
@@ -58,8 +61,8 @@
                     <li><a href="/" class="active" aria-current="page">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/initiatives/">Initiatives</a></li>
-                    <li><a href="/sponsors/">Sponsors</a></li>
-                    <li><a href="/conference/">Conference</a></li>
+                    <li><a href="/sponsors/">Partners</a></li>
+                    <li><a href="https://nsbe.org/events/" target="_blank" rel="noopener noreferrer">Conference</a></li>
                     <li><a href="/contact/">Contact Us</a></li>
                 </ul>
             </div>
@@ -69,92 +72,245 @@
     <main id="main-content">
         <div class="hero-image-container">
             <img loading="lazy" src="images/hero.jpg" alt="E-Board presenting at USF NSBE meeting" fetchpriority="high">
-            <img loading="lazy" src="./images/NSBE-banner.png" alt="NSBE Banner" class="img-banner" fetchpriority="high">
+            <div class="hero-overlay">
+                <h1 class="hero-title">USF NSBE</h1>
+                <p class="hero-subtitle">Developing the next generation of Black engineers who excel academically, succeed professionally, and positively impact the community.</p>
+                <div class="hero-cta-group">
+                    <a href="/sponsors/" class="cta-button primary hero-cta">Partner With Us</a>
+                    <a href="/initiatives/" class="cta-button secondary hero-cta">View Initiatives</a>
+                    <a href="/contact/" class="cta-button secondary hero-cta">Join the Chapter</a>
+                </div>
+            </div>
         </div>
-        
-        <section class="mission-chapter-section">
-            <div class="mission-container">
-                <div class="mission-badge">Our Mission</div>
-                <div class="mission-card">
-                    <p class="mission-text">
-                        NSBE's mission is to increase the number of culturally responsible Black engineers who excel academically, succeed professionally, and positively impact the community.
-                    </p>
-                </div>
-            </div>
 
-            <div class="chapter-container">
-                <div class="chapter-card">
-                    <h2 class="chapter-title">USF Chapter</h2>
-                    <p class="chapter-text">
-                        Our USF chapter actively upholds this mission through a variety of engaging programs and initiatives. We focus on fostering academic excellence, offering invaluable professional development opportunities, and implementing robust pre-college initiatives that inspire the next generation of STEM leaders. From technical workshops and career guidance to community outreach and leadership development, we strive to create a supportive and empowering environment for our members to thrive. Join us as we work to make a striking impact on both the engineering world and the broader community.
-                    </p>
-                    <div class="button-group">
-                        <a href="/about/" class="cta-button primary" aria-label="Learn more about USF NSBE chapter">Learn More</a>
-                        <a href="/contact/" class="cta-button secondary" aria-label="Join USF NSBE chapter">Join Us</a>
+        <!-- Year in Action Photo Strip -->
+        <section class="highlights-section" aria-label="Chapter highlights">
+            <div class="highlights-header">
+                <span class="highlights-label">25&ndash;26 Season</span>
+                <h2 class="highlights-title">A Year in Action</h2>
+            </div>
+            <div class="highlights-track-wrap">
+                <div class="highlights-row highlights-row--left" aria-hidden="true">
+                    <div class="highlights-track">
+                        <img src="/images/highlights/leslie-controls.jpg" alt="Office visit at Leslie Controls">
+                        <img src="/images/highlights/surviving-stem.jpg" alt="Surviving STEM event recap">
+                        <img src="/images/highlights/convention-city.jpg" alt="Members at NSBE National Convention">
+                        <img src="/images/highlights/convention-banner.jpg" alt="Members at NSBE step-and-repeat">
+                        <img src="/images/highlights/walk-for-education.jpg" alt="A Walk for Education at TAW Hall of Flags">
+                        <img src="/images/highlights/jabil-visit.jpg" alt="Office visit at Jabil">
+                        <img src="/images/highlights/leslie-controls.jpg" alt="" aria-hidden="true">
+                        <img src="/images/highlights/surviving-stem.jpg" alt="" aria-hidden="true">
+                        <img src="/images/highlights/convention-city.jpg" alt="" aria-hidden="true">
+                        <img src="/images/highlights/convention-banner.jpg" alt="" aria-hidden="true">
+                        <img src="/images/highlights/walk-for-education.jpg" alt="" aria-hidden="true">
+                        <img src="/images/highlights/jabil-visit.jpg" alt="" aria-hidden="true">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="carousel-section" aria-label="Featured NSBE Highlights">
-            <h2 class="section-title">Our Impact</h2>
-            <div class="custom-carousel" role="region" aria-roledescription="carousel" aria-label="NSBE highlights carousel">
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
-                            <img src="./images/eboard_1.jpg" alt="NSBE panel discussion with industry professionals">
-                            <div class="carousel-caption">
-                                <h3>Professional Development</h3>
-                                <p>Connecting students with industry leaders through panel discussions and workshops</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
-                            <img src="./images/eboard_2.jpg" alt="Students studying together">
-                            <div class="carousel-caption">
-                                <h3>Academic Excellence</h3>
-                                <p>Supporting members through tutoring, study groups, and academic resources</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
-                            <img src="./images/eboard_3.png" alt="NSBE members at beach cleanup event">
-                            <div class="carousel-caption">
-                                <h3>Community Service</h3>
-                                <p>Making a positive impact through volunteer work and community engagement</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
-                            <img src="./images/eboard_4.jpg" alt="Students preparing for NSBE conference">
-                            <div class="carousel-caption">
-                                <h3>Conference Preparation</h3>
-                                <p>Preparing members for success at regional and national NSBE conferences</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
-                            <img src="./images/eboard_5.png" alt="NSBE career expo event">
-                            <div class="carousel-caption">
-                                <h3>Career Opportunities</h3>
-                                <p>Facilitating connections between students and top engineering employers</p>
-                            </div>
-                        </div>
+        <!-- Mission + President Vision -->
+        <section class="mission-split" aria-label="Chapter missions and president's vision">
+            <div class="mission-split-left">
+                <div class="mission-split-block">
+                    <span class="mission-split-label">National Mission</span>
+                    <p class="mission-split-text">To increase the number of culturally responsible Black engineers who excel academically, succeed professionally, and positively impact the community.</p>
+                </div>
+                <div class="mission-split-rule" aria-hidden="true" style="visibility:hidden;"></div>
+                <div class="mission-split-block">
+                    <span class="mission-split-label">USF Chapter</span>
+                    <p class="mission-split-text">USF NSBE turns ambition into direction through programs that help students build technical projects, map career pathways, strengthen their professional identity, and bring STEM mentorship back into the community.</p>
+                </div>
+            </div>
+
+            <div class="mission-split-divider" aria-hidden="true"></div>
+
+            <div class="mission-split-right">
+                <span class="mission-split-label">A Word From Our President</span>
+                <blockquote class="president-quote">
+                    "Our chapter exists to make sure that every Black engineering student at USF has the community, the preparation, and the opportunity they need to succeed. That's not just a mission, that's a responsibility we take seriously every single day."
+                </blockquote>
+                <div class="president-card">
+                    <img src="/about/images/13.jpeg" alt="Hannah-Camille Rowe, USF NSBE President" class="president-headshot">
+                    <div class="president-info">
+                        <strong>Hannah-Camille Rowe</strong>
+                        <span>'26-'27 President</span>
+                        <span>Electrical Engineering '27</span>
                     </div>
                 </div>
-                <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">
-                    <span aria-hidden="true">‹</span>
-                </button>
-                <button class="carousel-btn carousel-btn-next" aria-label="Next slide">
-                    <span aria-hidden="true">›</span>
-                </button>
-                <div class="carousel-indicators" role="tablist" aria-label="Slide navigation">
-                    <button class="indicator active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
-                    <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
-                    <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
-                    <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
-                    <button class="indicator" role="tab" aria-selected="false" aria-label="Go to slide 5"></button>
+                <div class="mission-split-actions">
+                    <a href="/initiatives/" class="mission-split-btn mission-split-btn--primary">Our Initiatives</a>
+                    <a href="/contact/" class="mission-split-btn mission-split-btn--ghost">Join Us</a>
                 </div>
             </div>
         </section>
+
+        <!-- Partner Logo Strip -->
+        <section class="partner-strip" aria-label="Corporate partners">
+            <div class="partner-strip-inner">
+                <span class="partner-strip-label">Backed by Industry Leaders</span>
+                <div class="partner-logos">
+                    <div class="partner-logo-item">
+                        <a href="https://www.honeywell.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Honeywell">
+                            <img loading="lazy" src="/sponsors/sponsor_images/HWlogo.png" alt="Honeywell">
+                        </a>
+                    </div>
+                    <div class="partner-logo-divider" aria-hidden="true"></div>
+                    <div class="partner-logo-item">
+                        <a href="https://www.duke-energy.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Duke Energy">
+                            <img loading="lazy" src="/sponsors/sponsor_images/DukeLogo.jpg" alt="Duke Energy">
+                        </a>
+                    </div>
+                    <div class="partner-logo-divider" aria-hidden="true"></div>
+                    <div class="partner-logo-item">
+                        <a href="https://www.bcceng.com" target="_blank" rel="noopener noreferrer" aria-label="Visit BCC Engineering">
+                            <img loading="lazy" src="/sponsors/sponsor_images/bcc-logo.svg" alt="BCC Engineering">
+                        </a>
+                    </div>
+                </div>
+                <a href="/sponsors/" class="partner-strip-link">View All Partners &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Mission in Practice -->
+        <section class="mission-practice-section" aria-label="Mission in practice">
+            <div class="mission-practice-header">
+                <h2>Mission in Practice</h2>
+                <p>We don't just talk about impact, we show up. Here's what that looks like in Tampa Bay.</p>
+            </div>
+
+            <div class="mission-practice-grid">
+                <article class="practice-card" aria-label="Community Outreach">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/initiatives/images/AWFE.avif" alt="USF NSBE members distributing SAT prep books to underserved communities">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">Community Outreach</span>
+                        <h3>A Walk for Education</h3>
+                        <p>We raised money and distributed over 50 SAT prep books to students in underserved communities, educating families on college pathways and career readiness.</p>
+                    </div>
+                </article>
+
+                <article class="practice-card" aria-label="STEM Education">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/images/eboard_2.jpg" alt="USF NSBE members teaching STEM to elementary students at Lomax">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">K-12 STEM</span>
+                        <h3>Lomax Elementary STEM</h3>
+                        <p>Bi-weekly, our members lead hands-on engineering sessions for elementary students, introducing robotics and foundational STEM concepts.</p>
+                    </div>
+                </article>
+
+                <article class="practice-card" aria-label="Environmental Service">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/initiatives/images/BeachCleanup.avif" alt="USF NSBE members cleaning up Sunset Beach">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">Environmental Service</span>
+                        <h3>Sunset Beach Clean-Up</h3>
+                        <p>Our chapter rolled up our sleeves for a coastal cleanup at Sunset Beach, demonstrating our commitment to environmental stewardship and public service.</p>
+                    </div>
+                </article>
+
+                <article class="practice-card" aria-label="Community Service">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/initiatives/images/MM.avif" alt="USF NSBE members volunteering with Metropolitan Ministries">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">Community Service</span>
+                        <h3>Metropolitan Ministries</h3>
+                        <p>Members volunteered serving meals, sorting clothing donations, and bringing care directly to families in need across Tampa.</p>
+                    </div>
+                </article>
+
+                <article class="practice-card" aria-label="STEM Outreach">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/initiatives/images/Expo.avif" alt="USF NSBE hosting STEM demonstrations at USF Engineering Expo">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">STEM Outreach</span>
+                        <h3>USF Engineering Expo</h3>
+                        <p>We hosted immersive STEM activities for K-12 visitors at USF's largest annual outreach event, sparking curiosity about engineering careers.</p>
+                    </div>
+                </article>
+
+                <article class="practice-card" aria-label="College Access">
+                    <div class="practice-card-img">
+                        <img loading="lazy" src="/initiatives/images/Panel2.avif" alt="USF NSBE members on college readiness panel at King High School">
+                    </div>
+                    <div class="practice-card-body">
+                        <span class="practice-tag">College Access</span>
+                        <h3>King High School College Readiness</h3>
+                        <p>Our members joined a scholar panel for rising seniors, sharing real guidance on navigating college life, choosing majors, and building toward engineering careers.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mission-practice-cta">
+                <a href="/initiatives/" class="cta-button primary">See All Initiatives</a>
+            </div>
+        </section>
+
+        <!-- Get in Touch -->
+        <section class="home-contact-section" aria-label="Get in touch with USF NSBE">
+            <div class="home-contact-inner">
+                <div class="home-contact-header">
+                    <span class="home-contact-label">Reach Out</span>
+                    <h2 class="home-contact-title">Get in Touch</h2>
+                    <p class="home-contact-sub">We're active and responsive. Find us on social media, join our community channels, or reach out directly.</p>
+                </div>
+
+                <div class="home-social-grid" role="region" aria-label="Social media and contact links">
+                    <a href="https://bullsconnect.usf.edu/NSBE/club_signup" target="_blank" rel="noopener noreferrer" class="home-social-item home-social-item--bulls" aria-label="Join USF NSBE on BullsConnect">
+                        <img src="/contact/images/bullsconnect.jpg" class="home-social-img" alt="BullsConnect">
+                        <span>Bulls Connect</span>
+                    </a>
+                    <a href="https://instagram.com/usfnsbe" target="_blank" rel="noopener noreferrer" class="home-social-item home-social-item--ig" aria-label="Follow USF NSBE on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/nsbe-usf-chapter" target="_blank" rel="noopener noreferrer" class="home-social-item home-social-item--li" aria-label="Connect on LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://discord.gg/qkeNRYNHZX" target="_blank" rel="noopener noreferrer" class="home-social-item home-social-item--discord" aria-label="Join USF NSBE Discord">
+                        <i class="fab fa-discord" aria-hidden="true"></i>
+                        <span>Discord</span>
+                    </a>
+                    <a href="mailto:vicepresident.usf.nsbe@gmail.com" class="home-social-item home-social-item--email" aria-label="Email USF NSBE">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Email Us</span>
+                    </a>
+                    <a href="https://groupme.com/join_group/19932502/5yTZWx" target="_blank" rel="noopener noreferrer" class="home-social-item home-social-item--groupme" aria-label="Join USF NSBE GroupMe">
+                        <img src="/contact/images/groupme.png" class="home-social-img" alt="GroupMe">
+                        <span>GroupMe</span>
+                    </a>
+                </div>
+
+                <div class="home-inquiry-grid" role="region" aria-label="Contact by inquiry type">
+                    <div class="home-inquiry-card">
+                        <h3>General Questions</h3>
+                        <p>Questions about the chapter, upcoming events, or anything general, social media is the fastest way to get a response.</p>
+                        <a href="https://instagram.com/usfnsbe" target="_blank" rel="noopener noreferrer" class="home-inquiry-link">Message us on Instagram</a>
+                    </div>
+                    <div class="home-inquiry-card">
+                        <h3>Membership</h3>
+                        <p>Ready to join or want to learn more before signing up? Start on BullsConnect, that's where official NSBE membership lives.</p>
+                        <a href="https://bullsconnect.usf.edu/NSBE/club_signup" target="_blank" rel="noopener noreferrer" class="home-inquiry-link">Join on BullsConnect</a>
+                    </div>
+                    <div class="home-inquiry-card">
+                        <h3>Sponsorship &amp; Corporate Partnerships</h3>
+                        <p>Interested in partnering with USF NSBE, recruiting our members, or sponsoring an event? Reach out directly to our Vice President.</p>
+                        <p class="home-inquiry-name">Nicholas Christie, Vice President</p>
+                        <a href="mailto:vicepresident.usf.nsbe@gmail.com" class="home-inquiry-link">vicepresident.usf.nsbe@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    
+
     <footer class="modern-footer">
         <div class="footer-container">
             <div class="footer-section">
@@ -163,40 +319,6 @@
                     <li><a href="/" class="active">Home</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/initiatives/">Initiatives</a></li>
-                    <li><a href="/sponsors/">Sponsors</a></li>
-                    <li><a href="/conference/">Conference</a></li>
-                    <li><a href="/contact/">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/usfnsbe" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/nsbe-usf-chapter" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Connect with us on LinkedIn">
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-    
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="contact-details">
-                    <a href="mailto:vicepresident.usf.nsbe@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Email us">
-                        <span>Email</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 NSBE USF Chapter. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="/js/menu.js" defer></script>
-    <script src="/js/carousel.js" defer></script>
-
-</body>
-</html>
+                    <li><a href="/sponsors/">Partners</a></li>
+                    <li><a href="https://nsbe.org/events/" target="_blank" rel="noopener noreferrer">Conference</a></li>
+                    <li><a href="/contact/">Contact
