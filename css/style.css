@@ -2606,10 +2606,143 @@ body.is-loading {
     .indicator.active { width: 24px; }
 }
 
-@media (max-width: 480px) {
-    .carousel-slide img { height: 280px; }
-    .carousel-caption h3 { font-size: 1.3rem; }
-    .carousel-caption p { font-size: 0.9rem; }
-    .carousel-section .section-title { font-size: 1.75rem; }
+/* ===========================
+   MOBILE FIXES
+   =========================== */
+
+/* Hero CTA buttons: keep compact on small screens */
+@media (max-width: 600px) {
+    .hero-cta {
+        flex: 0 1 auto;
+        max-width: none;
+        padding: 0.55rem 1.1rem;
+        font-size: 0.875rem;
+        min-width: unset;
+    }
+    .hero-cta-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
 }
 
+/* Conference: responsive map + text + FAQ */
+@media (max-width: 640px) {
+    .conference-highlight {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    .conference-highlight-text {
+        width: 100%;
+    }
+    .conference-map {
+        width: 100%;
+        max-width: 100%;
+        height: 260px;
+    }
+    .conference-highlight-inner-container {
+        width: 100%;
+    }
+    .faq-accordion {
+        width: 94%;
+    }
+    .support-container {
+        width: 94%;
+    }
+}
+
+/* Sponsors: tier cards full-width on small screens */
+@media (max-width: 500px) {
+    .tier-card {
+        width: 90vw;
+        max-width: 360px;
+    }
+}
+
+/* About: team member cards comfortable on small screens */
+@media (max-width: 400px) {
+    .team-member {
+        width: 90vw;
+        max-width: 280px;
+    }
+    .zone {
+        gap: 1rem;
+    }
+}
+
+/* ===========================
+   MOBILE FIXES
+   =========================== */
+
+/* Hero CTA buttons: keep compact on small screens */
+@media (max-width: 600px) {
+    .hero-cta {
+        flex: 0 1 auto;
+        max-width: none;
+        padding: 0.55rem 1.1rem;
+        font-size: 0.875rem;
+        min-width: unset;
+    }
+    .hero-cta-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Conference: responsive map, text, FAQ */
+@media (max-width: 640px) {
+    .conference-highlight {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    .conference-highlight-text {
+        width: 100%;
+    }
+    .conference-map {
+        width: 100%;
+        max-width: 100%;
+        height: 260px;
+    }
+    .conference-highlight-inner-container {
+        width: 100%;
+    }
+    .faq-accordion {
+        width: 94%;
+    }
+    .support-container {
+        width: 94%;
+    }
+}
+
+/* Sponsors: tier cards on small screens */
+@media (max-width: 500px) {
+    .tier-card {
+        width: 90vw;
+        max-width: 360px;
+    }
+}
+
+/* About: team member cards on very small screens */
+@media (max-width: 400px) {
+    .team-member {
+        width: 90vw;
+        max-width: 280px;
+    }
+    .zone {
+        gap: 1rem;
+    }
+}
+
+/* Header: tighten padding on small screens */
+@media (max-width: 480px) {
+    header {
+        padding: 12px 16px;
+    }
+    .logo img {
+        height: 32px;
+        margin-right: 10px;
+    }
+}
