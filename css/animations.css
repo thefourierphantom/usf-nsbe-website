@@ -216,6 +216,7 @@ header.header--scrolled .hamburger-lines .line {
     display: flex;
     justify-content: center;
     padding: 2rem 0 3rem;
+    overflow: hidden; /* clips the 2x-scaled iframe before it leaks horizontally */
 }
 .packet-deck {
     position: relative;
