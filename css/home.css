@@ -224,8 +224,8 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+    gap: 2rem;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
@@ -242,14 +242,14 @@
 .partner-logos {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
     flex: 1;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .partner-logo-item img {
-    height: 36px;
+    height: 34px;
     width: auto;
     object-fit: contain;
     filter: grayscale(1);
@@ -260,6 +260,17 @@
 .partner-logo-item img:hover {
     filter: grayscale(0);
     opacity: 1;
+}
+
+/* AtkinsRéalis SVG has a light fill — darken it and size appropriately */
+.partner-logo-item--atkins img {
+    height: 22px;
+    filter: grayscale(1) brightness(0.35) !important;
+    opacity: 0.7 !important;
+}
+.partner-logo-item--atkins img:hover {
+    filter: brightness(0.5) !important;
+    opacity: 1 !important;
 }
 
 .partner-logo-divider {

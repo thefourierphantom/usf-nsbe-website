@@ -1,4 +1,9 @@
 /* ============================================================
+   WHITE FLASH FIX — set html bg before any CSS loads
+   ============================================================ */
+html { background: #F4F3EE; }
+
+/* ============================================================
    PAGE TRANSITIONS — Cross-document fade (Chrome 126+/Safari 18+)
    ============================================================ */
 @view-transition { navigation: auto; }
@@ -10,7 +15,26 @@
 ::view-transition-new(root) { animation: 0.32s ease-out vt-fade-in  both; }
 
 /* ============================================================
-   HERO ENTRANCE — fires on page load, no JS needed
+   NAV — bright links when header is scrolled over dark bg
+   ============================================================ */
+header {
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+header.header--scrolled {
+    background: rgba(14, 42, 23, 0.97) !important;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+}
+header.header--scrolled nav a {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+header.header--scrolled nav a:hover,
+header.header--scrolled nav a.active {
+    background-color: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+}
+
+/* ============================================================
+   HERO ENTRANCE — fires on page load
    ============================================================ */
 @keyframes hero-title-in {
     from { opacity: 0; transform: translateY(28px); }
@@ -30,19 +54,8 @@
 .hero-cta-group { animation: hero-cta-in  0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
 
 /* ============================================================
-   HEADER SCROLL STATE
-   ============================================================ */
-header {
-    transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
-}
-header.header--scrolled {
-    background: rgba(14, 42, 23, 0.97) !important;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.18);
-}
-
-/* ============================================================
    SCROLL REVEAL — directional variant system
-   All hidden states share transition; visible state clears all
+   !important ensures these override any element-level transitions
    ============================================================ */
 .sr-up,
 .sr-left,
@@ -50,27 +63,30 @@ header.header--scrolled {
 .sr-scale,
 .sr-fade {
     transition:
-        opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1) !important,
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
     will-change: opacity, transform;
 }
 
-.sr-up    { opacity: 0; transform: translateY(40px); }
-.sr-left  { opacity: 0; transform: translateX(-50px); }
-.sr-right { opacity: 0; transform: translateX(50px); }
-.sr-scale { opacity: 0; transform: scale(0.88) translateY(20px); }
-.sr-fade  { opacity: 0; transform: none; }
+.sr-up    { opacity: 0 !important; transform: translateY(40px) !important; }
+.sr-left  { opacity: 0 !important; transform: translateX(-50px) !important; }
+.sr-right { opacity: 0 !important; transform: translateX(50px) !important; }
+.sr-scale { opacity: 0 !important; transform: scale(0.88) translateY(16px) !important; }
+.sr-fade  { opacity: 0 !important; transform: none !important; }
 
-/* Revealed state — same for all directions */
+/* Revealed state */
 .sr-visible {
     opacity: 1 !important;
     transform: none !important;
 }
 
-/* Legacy alias so existing selectors still work */
-.sr-hidden { opacity: 0; transform: translateY(36px);
+/* Legacy alias */
+.sr-hidden {
+    opacity: 0;
+    transform: translateY(36px);
     transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 /* ============================================================
    STAT COUNTER ANIMATION
@@ -86,8 +102,6 @@ header.header--scrolled {
 /* ============================================================
    HOVER MICRO-INTERACTIONS
    ============================================================ */
-
-/* Practice cards lift */
 .practice-card {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s ease;
@@ -97,7 +111,6 @@ header.header--scrolled {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.13);
 }
 
-/* Tier cards lift */
 .tier-card {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s ease;
@@ -107,7 +120,6 @@ header.header--scrolled {
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
 }
 
-/* Featured initiative cards */
 .featured-initiative-card {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s ease;
@@ -117,7 +129,6 @@ header.header--scrolled {
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.11);
 }
 
-/* Social items pop */
 .social-item,
 .home-social-item {
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
@@ -129,31 +140,6 @@ header.header--scrolled {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* Sponsor logos breathe */
-.sponsor-logo {
-    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-    filter: grayscale(20%);
-    opacity: 0.85;
-}
-.sponsor-logo:hover {
-    transform: scale(1.08);
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-/* Partner logos same */
-.partner-logo-item img {
-    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-    filter: grayscale(15%);
-    opacity: 0.8;
-}
-.partner-logo-item img:hover {
-    transform: scale(1.07);
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-/* Team member cards */
 .team-member {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s ease;
@@ -163,16 +149,34 @@ header.header--scrolled {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* ============================================================
-   SECTION HEADER ACCENT LINE — expands on reveal
-   ============================================================ */
-@keyframes rule-expand {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
+/* Sponsor logos on sponsors page */
+.sponsor-logo {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.82;
 }
-.sr-visible .section-rule,
-.section-rule.sr-visible {
-    animation: rule-expand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+.sponsor-logo:hover {
+    transform: scale(1.06);
+    opacity: 1;
+}
+
+/* AtkinsRéalis on sponsors page — native fill is light, darken it */
+.sponsor-logo--atkins {
+    filter: brightness(0.45) !important;
+    opacity: 0.9 !important;
+    height: 48px !important;
+    width: auto !important;
+}
+.sponsor-logo--atkins:hover {
+    filter: brightness(0.6) !important;
+    opacity: 1 !important;
+}
+
+/* Partner logos on home strip — handled in home.css */
+.partner-logo-item img {
+    transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+.partner-logo-item img:hover {
+    transform: scale(1.07);
 }
 
 /* ============================================================
@@ -203,8 +207,6 @@ header.header--scrolled {
     color: #555;
     margin-bottom: 2.5rem;
 }
-
-/* Deck wrapper */
 .packet-deck-wrap {
     display: flex;
     justify-content: center;
@@ -216,8 +218,6 @@ header.header--scrolled {
     aspect-ratio: 16/10;
     cursor: pointer;
 }
-
-/* Shadow cards — stack behind the front card */
 .packet-card {
     position: absolute;
     inset: 0;
@@ -243,13 +243,9 @@ header.header--scrolled {
     opacity: 0.9;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.06s;
 }
-
-/* Fan out on hover */
 .packet-deck:hover .packet-card--shadow3 { transform: rotate(-6deg) translate(-12px, 10px); }
 .packet-deck:hover .packet-card--shadow2 { transform: rotate(-3deg) translate(-6px, 5px); }
 .packet-deck:hover .packet-card--shadow1 { transform: rotate(-1deg) translate(-2px, 2px); }
-
-/* Front card — contains the iframe */
 .packet-card--front {
     position: absolute;
     inset: 0;
@@ -257,7 +253,6 @@ header.header--scrolled {
     border-radius: 10px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.18);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    transform: rotate(0deg);
 }
 .packet-deck:hover .packet-card--front {
     transform: translateY(-4px) scale(1.01);
@@ -268,10 +263,7 @@ header.header--scrolled {
     height: 100%;
     border: none;
     display: block;
-    pointer-events: auto;
 }
-
-/* Overlay with open button */
 .packet-card-overlay {
     position: absolute;
     bottom: 0;
@@ -296,9 +288,7 @@ header.header--scrolled {
     backdrop-filter: blur(6px);
     transition: background 0.2s ease;
 }
-.packet-fullscreen-btn:hover {
-    background: rgba(255,255,255,0.28);
-}
+.packet-fullscreen-btn:hover { background: rgba(255,255,255,0.28); }
 
 /* ============================================================
    BIGGER DOWNLOAD BUTTON
@@ -308,7 +298,7 @@ header.header--scrolled {
     padding: 1rem 2.2rem !important;
     letter-spacing: 0.04em;
     box-shadow: 0 4px 20px rgba(0, 150, 57, 0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
 .button--xl:hover {
     transform: translateY(-2px);
@@ -316,26 +306,19 @@ header.header--scrolled {
 }
 
 /* ============================================================
-   AtkinsRéalis text logo sizing fix
-   ============================================================ */
-.sponsor-logo--text {
-    height: 60px !important;
-    width: auto;
-}
-
-/* ============================================================
-   REDUCED MOTION — disable everything
+   REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(root),
-    ::view-transition-new(root)   { animation: none; }
+    ::view-transition-new(root)    { animation: none; }
     .sr-up, .sr-left, .sr-right,
-    .sr-scale, .sr-fade, .sr-hidden { transition: none; }
+    .sr-scale, .sr-fade, .sr-hidden { transition: none !important; }
     .hero-title, .hero-subtitle,
     .hero-cta-group                 { animation: none; opacity: 1; transform: none; }
     .practice-card:hover,
     .tier-card:hover,
     .featured-initiative-card:hover,
     .social-item:hover,
-    .home-social-item:hover         { transform: none; }
+    .home-social-item:hover,
+    .team-member:hover              { transform: none; }
 }
