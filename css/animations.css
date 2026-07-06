@@ -1,13 +1,341 @@
-/* Scroll reveal — hidden state applied by JS before observation */
-.sr-hidden {
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+/* ============================================================
+   PAGE TRANSITIONS — Cross-document fade (Chrome 126+/Safari 18+)
+   ============================================================ */
+@view-transition { navigation: auto; }
+
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in  { from { opacity: 0; } }
+
+::view-transition-old(root) { animation: 0.22s ease-in  vt-fade-out both; }
+::view-transition-new(root) { animation: 0.32s ease-out vt-fade-in  both; }
+
+/* ============================================================
+   HERO ENTRANCE — fires on page load, no JS needed
+   ============================================================ */
+@keyframes hero-title-in {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-sub-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-cta-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll reveal — triggered when element enters viewport */
+.hero-title    { animation: hero-title-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+.hero-subtitle { animation: hero-sub-in   0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+.hero-cta-group { animation: hero-cta-in  0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+
+/* ============================================================
+   HEADER SCROLL STATE
+   ============================================================ */
+header {
+    transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+}
+header.header--scrolled {
+    background: rgba(14, 42, 23, 0.97) !important;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+}
+
+/* ============================================================
+   SCROLL REVEAL — directional variant system
+   All hidden states share transition; visible state clears all
+   ============================================================ */
+.sr-up,
+.sr-left,
+.sr-right,
+.sr-scale,
+.sr-fade {
+    transition:
+        opacity  0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.sr-up    { opacity: 0; transform: translateY(40px); }
+.sr-left  { opacity: 0; transform: translateX(-50px); }
+.sr-right { opacity: 0; transform: translateX(50px); }
+.sr-scale { opacity: 0; transform: scale(0.88) translateY(20px); }
+.sr-fade  { opacity: 0; transform: none; }
+
+/* Revealed state — same for all directions */
 .sr-visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Legacy alias so existing selectors still work */
+.sr-hidden { opacity: 0; transform: translateY(36px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ============================================================
+   STAT COUNTER ANIMATION
+   ============================================================ */
+@keyframes count-up-tick {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.stat-number.counting {
+    animation: count-up-tick 0.4s ease both;
+}
+
+/* ============================================================
+   HOVER MICRO-INTERACTIONS
+   ============================================================ */
+
+/* Practice cards lift */
+.practice-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s ease;
+}
+.practice-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.13);
+}
+
+/* Tier cards lift */
+.tier-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s ease;
+}
+.tier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Featured initiative cards */
+.featured-initiative-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s ease;
+}
+.featured-initiative-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.11);
+}
+
+/* Social items pop */
+.social-item,
+.home-social-item {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s ease;
+}
+.social-item:hover,
+.home-social-item:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Sponsor logos breathe */
+.sponsor-logo {
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(20%);
+    opacity: 0.85;
+}
+.sponsor-logo:hover {
+    transform: scale(1.08);
+    filter: grayscale(0%);
     opacity: 1;
-    transform: translateY(0);
+}
+
+/* Partner logos same */
+.partner-logo-item img {
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(15%);
+    opacity: 0.8;
+}
+.partner-logo-item img:hover {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Team member cards */
+.team-member {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s ease;
+}
+.team-member:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   SECTION HEADER ACCENT LINE — expands on reveal
+   ============================================================ */
+@keyframes rule-expand {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+.sr-visible .section-rule,
+.section-rule.sr-visible {
+    animation: rule-expand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* ============================================================
+   PACKET EMBED DECK
+   ============================================================ */
+.packet-embed-section {
+    padding: 5rem 2rem 4rem;
+    background: #f7f8f9;
+    text-align: center;
+}
+.packet-embed-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #009639;
+    margin-bottom: 0.6rem;
+}
+.packet-embed-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: #0e2a17;
+    margin: 0 0 0.5rem;
+}
+.packet-embed-sub {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+}
+
+/* Deck wrapper */
+.packet-deck-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 3rem;
+}
+.packet-deck {
+    position: relative;
+    width: min(780px, 92vw);
+    aspect-ratio: 16/10;
+    cursor: pointer;
+}
+
+/* Shadow cards — stack behind the front card */
+.packet-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+}
+.packet-card--shadow3 {
+    transform: rotate(-3.5deg) translate(-6px, 6px);
+    background: #e8f5ee;
+    opacity: 0.6;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.packet-card--shadow2 {
+    transform: rotate(-1.8deg) translate(-3px, 3px);
+    background: #d4eddd;
+    opacity: 0.75;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.04s;
+}
+.packet-card--shadow1 {
+    transform: rotate(-0.6deg) translate(-1px, 1px);
+    background: #f0f9f3;
+    opacity: 0.9;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.06s;
+}
+
+/* Fan out on hover */
+.packet-deck:hover .packet-card--shadow3 { transform: rotate(-6deg) translate(-12px, 10px); }
+.packet-deck:hover .packet-card--shadow2 { transform: rotate(-3deg) translate(-6px, 5px); }
+.packet-deck:hover .packet-card--shadow1 { transform: rotate(-1deg) translate(-2px, 2px); }
+
+/* Front card — contains the iframe */
+.packet-card--front {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    transform: rotate(0deg);
+}
+.packet-deck:hover .packet-card--front {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 56px rgba(0,0,0,0.22);
+}
+.packet-card--front iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    pointer-events: auto;
+}
+
+/* Overlay with open button */
+.packet-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(to top, rgba(14,42,23,0.85) 0%, transparent 100%);
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+.packet-fullscreen-btn {
+    pointer-events: auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.15);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease;
+}
+.packet-fullscreen-btn:hover {
+    background: rgba(255,255,255,0.28);
+}
+
+/* ============================================================
+   BIGGER DOWNLOAD BUTTON
+   ============================================================ */
+.button--xl {
+    font-size: 1.05rem !important;
+    padding: 1rem 2.2rem !important;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 20px rgba(0, 150, 57, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease !important;
+}
+.button--xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 150, 57, 0.38);
+}
+
+/* ============================================================
+   AtkinsRéalis text logo sizing fix
+   ============================================================ */
+.sponsor-logo--text {
+    height: 60px !important;
+    width: auto;
+}
+
+/* ============================================================
+   REDUCED MOTION — disable everything
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root)   { animation: none; }
+    .sr-up, .sr-left, .sr-right,
+    .sr-scale, .sr-fade, .sr-hidden { transition: none; }
+    .hero-title, .hero-subtitle,
+    .hero-cta-group                 { animation: none; opacity: 1; transform: none; }
+    .practice-card:hover,
+    .tier-card:hover,
+    .featured-initiative-card:hover,
+    .social-item:hover,
+    .home-social-item:hover         { transform: none; }
 }
