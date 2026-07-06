@@ -314,11 +314,11 @@ header.header--scrolled .hamburger-lines .line {
    MOBILE OVERRIDES
    ============================================================ */
 
-/* Mobile packet CTA — hidden on desktop, shown on mobile */
+/* Mobile packet CTA — below the deck on mobile as a secondary action */
 .packet-mobile-cta {
     display: none;
     justify-content: center;
-    padding: 1rem 0 0.5rem;
+    padding: 0.75rem 0 0;
 }
 
 @media (max-width: 640px) {
@@ -329,10 +329,21 @@ header.header--scrolled .hamburger-lines .line {
         width: auto !important;
     }
 
-    /* Hide iframe deck on mobile — PDF iframes don't render well on iOS */
-    .packet-deck-wrap {
-        display: none;
+    /* Packet embed on mobile: taller card so there's more to see */
+    .packet-deck {
+        aspect-ratio: 4/3 !important;
     }
+
+    /* Scale trick: render iframe at 2x, scale down 50% visually.
+       The PDF viewer sees a wider viewport and fits more content on screen. */
+    .packet-card--front iframe {
+        width: 200% !important;
+        height: 200% !important;
+        transform: scale(0.5) !important;
+        transform-origin: 0 0 !important;
+    }
+
+    /* Show "Open Full Packet" below the deck as a fallback */
     .packet-mobile-cta {
         display: flex;
     }
