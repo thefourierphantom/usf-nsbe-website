@@ -298,6 +298,25 @@
     .partner-strip-link { width: 100%; text-align: center; }
 }
 
+@media (max-width: 600px) {
+    /* Allow wrapping so logos don't overflow horizontally */
+    .partner-strip-inner {
+        flex-wrap: wrap !important;
+        gap: 1.25rem;
+        justify-content: center;
+    }
+    .partner-logos {
+        flex-wrap: wrap !important;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    /* Scale down AtkinsRéalis on home strip for mobile */
+    .partner-logo-item--atkins img {
+        height: 18px !important;
+        max-width: 160px;
+    }
+}
+
 /* ===========================
    Year in Action Photo Strip
    =========================== */

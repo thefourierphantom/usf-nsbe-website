@@ -32,6 +32,10 @@ header.header--scrolled nav a.active {
     background-color: rgba(255,255,255,0.12) !important;
     color: #ffffff !important;
 }
+/* Hamburger lines turn white on dark scrolled header */
+header.header--scrolled .hamburger-lines .line {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+}
 
 /* ============================================================
    HERO ENTRANCE — fires on page load
@@ -303,6 +307,26 @@ header.header--scrolled nav a.active {
 .button--xl:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(0, 150, 57, 0.38);
+}
+
+/* ============================================================
+   MOBILE OVERRIDES
+   ============================================================ */
+@media (max-width: 640px) {
+    /* AtkinsRéalis SVG is wide (259:36 ratio) — cap width on mobile */
+    .sponsor-logo--atkins {
+        height: 52px !important;
+        max-width: 85vw !important;
+        width: auto !important;
+    }
+
+    /* Packet embed — taller aspect on narrow screens so PDF is readable */
+    .packet-deck {
+        aspect-ratio: 3/4 !important;
+    }
+    .packet-embed-section {
+        padding: 3rem 1rem 2.5rem;
+    }
 }
 
 /* ============================================================

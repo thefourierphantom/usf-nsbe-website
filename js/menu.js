@@ -7,17 +7,34 @@ document.addEventListener('DOMContentLoaded', function () {
     var mobileMenu   = document.getElementById('mobileMenu');
 
     if (burgerToggle && mobileMenu) {
-        burgerToggle.addEventListener('click', function () {
-            burgerToggle.classList.toggle('menu-open');
-            mobileMenu.classList.toggle('menu-open');
-            burgerToggle.setAttribute('aria-expanded',
-                burgerToggle.classList.contains('menu-open') ? 'true' : 'false');
+        // stopPropagation prevents the document handler below from immediately closing it
+        burgerToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var isOpen = burgerToggle.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('menu-open', isOpen);
+            burgerToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
         });
+
+        // Close when tapping anywhere outside the menu or burger
+        document.addEventListener('click', function (e) {
+            if (burgerToggle.classList.contains('menu-open') &&
+                !burgerToggle.contains(e.target) &&
+                !mobileMenu.contains(e.target)) {
+                burgerToggle.classList.remove('menu-open');
+                mobileMenu.classList.remove('menu-open');
+                burgerToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Close when a nav link is tapped
         mobileMenu.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 burgerToggle.classList.remove('menu-open');
                 mobileMenu.classList.remove('menu-open');
                 burgerToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
             });
         });
     }
