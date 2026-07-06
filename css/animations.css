@@ -24,11 +24,12 @@ header.header--scrolled {
     background: rgba(14, 42, 23, 0.97) !important;
     box-shadow: 0 2px 24px rgba(0,0,0,0.18);
 }
-header.header--scrolled nav a {
+/* Only target desktop nav links — mobile dropdown has cream bg so white text = invisible */
+header.header--scrolled .desktop-nav a {
     color: rgba(255, 255, 255, 0.88) !important;
 }
-header.header--scrolled nav a:hover,
-header.header--scrolled nav a.active {
+header.header--scrolled .desktop-nav a:hover,
+header.header--scrolled .desktop-nav a.active {
     background-color: rgba(255,255,255,0.12) !important;
     color: #ffffff !important;
 }
@@ -312,6 +313,14 @@ header.header--scrolled .hamburger-lines .line {
 /* ============================================================
    MOBILE OVERRIDES
    ============================================================ */
+
+/* Mobile packet CTA — hidden on desktop, shown on mobile */
+.packet-mobile-cta {
+    display: none;
+    justify-content: center;
+    padding: 1rem 0 0.5rem;
+}
+
 @media (max-width: 640px) {
     /* AtkinsRéalis SVG is wide (259:36 ratio) — cap width on mobile */
     .sponsor-logo--atkins {
@@ -320,9 +329,12 @@ header.header--scrolled .hamburger-lines .line {
         width: auto !important;
     }
 
-    /* Packet embed — taller aspect on narrow screens so PDF is readable */
-    .packet-deck {
-        aspect-ratio: 3/4 !important;
+    /* Hide iframe deck on mobile — PDF iframes don't render well on iOS */
+    .packet-deck-wrap {
+        display: none;
+    }
+    .packet-mobile-cta {
+        display: flex;
     }
     .packet-embed-section {
         padding: 3rem 1rem 2.5rem;
